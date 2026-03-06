@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOUSEN — Sell Smarter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <style>
+        :root { --blue: #0066cc; --dark: #1d1d1f; --gray: #86868b; --card: #f5f5f7; --ease: cubic-bezier(0.4, 0, 0.2, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        
+        nav { height: 100px; display: flex; align-items: center; }
+        .logo { font-size: 28px; letter-spacing: -0.5px; cursor: default; }
+        .logo b { font-weight: 700; color: var(--dark); }
+        .logo span { font-weight: 300; color: var(--gray); }
+
+        .hero { padding: 40px 0; text-align: center; }
+        .badge { background: var(--card); color: var(--blue); padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 24px; }
+        h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; }
+        
+        .grid { display: flex; flex-direction: column; gap: 24px; margin-bottom: 60px; }
+        .card.smart { order: 1; background: var(--dark); color: white; }
+        .card.old { order: 2; background: var(--card); }
+
+        @media (min-width: 768px) {
+            .grid { flex-direction: row; }
+            .card.old { order: 1; flex: 1; }
+            .card.smart { order: 2; flex: 1; }
+            h1 { font-size: 64px; }
+        }
+
+        .card { padding: 48px; border-radius: 36px; }
+        .card h3 { font-size: 24px; margin-bottom: 30px; }
+        .card ul { list-style: none; }
+        .card li { margin-bottom: 18px; display: flex; align-items: flex-start; font-size: 17px; line-height: 1.4; }
+        
+        .card li::before { 
+            content: ""; width: 22px; height: 22px; margin-right: 14px; margin-top: 2px; 
+            background-size: contain; background-repeat: no-repeat; flex-shrink: 0; 
+        }
+        
+        .card.old li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23d2d2d7' stroke-width='2.5'%3E%3Cpath d='M6 18L18 6M6 6l12 12'/%3E%3C/svg%3E"); }
+        .card.smart li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='3'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E"); }
+
+        .form-box { max-width: 460px; margin: 0 auto 120px; text-align: center; }
+        .form-box h2 { font-size: 40px; margin-bottom: 30px; }
+        input, textarea { width: 100%; padding: 20px; margin-bottom: 12px; border: 1px solid #d2d2d7; border-radius: 16px; font-size: 17px; outline: none; font-family: inherit; transition: 0.2s; }
+        textarea { height: 110px; resize: none; }
+        input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(0,102,204,0.1); }
+
+        .btn { width: 100%; padding: 20px; background: var(--blue); color: white; border: none; border-radius: 16px; font-size: 19px; font-weight: 600; cursor: pointer; transition: all 0.3s var(--ease); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0, 102, 204, 0.3); }
+        .btn:disabled { background: var(--gray); cursor: not-allowed; transform: none; }
+        
+        #status { margin-top: 20px; font-weight: 500; display: none; padding: 15px; border-radius: 12px; }
+        .cf-turnstile { margin-bottom: 20px; display: flex; justify-content: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <div class="logo"><b>HOUSE</b><span>N</span></div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">Trusted for over 100+ successful sales</div>
+        <h1>Sell for more.<br>Pay much less.</h1>
+        <p>Premium media and wide exposure on 65+ sites. Modern, fast, and simple.</p>
+    </section>
+
+    <div class="grid">
+        <div class="card smart">
+            <h3>Our Smart Way</h3>
+            <ul>
+                <li>Professional Media Team</li>
+                <li>Exposure on 65+ Sites</li>
+                <li>Digital or Personal Office Process</li>
+                <li>Sell Faster</li>
+            </ul>
+        </div>
+
+        <div class="card old">
+            <h3>Traditional Way</h3>
+            <ul>
+                <li>High Commission Fees</li>
+                <li>Basic Mobile Phone Photos</li>
+                <li>Payment for Owner Listing</li>
+                <li>Slow (60+ Days on Market)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <h2>Get Started</h2>
+        <form id="f">
+            <input type="text" id="n" placeholder="Full Name" required>
+            <input type="tel" id="p" placeholder="Phone Number" required>
+            <input type="text" id="a" placeholder="Property Address" required>
+            <input type="email" id="e" placeholder="Email Address" required>
+            <textarea id="m" placeholder="Add additional details... (Optional)"></textarea>
+            
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACnf4L6o66udc4s_"></div>
+
+            <button type="submit" class="btn" id="b">Get Started</button>
+        </form>
+        <div id="status"></div>
+    </div>
+</div>
+
+<script>
+    const WORKER_URL = 'https://housen-api-bridge.photozisstudio.workers.dev';
+    
+    document.getElementById('f').onsubmit = async (ev) => {
+        ev.preventDefault();
+        const b = document.getElementById('b');
+        const s = document.getElementById('status');
+        
+        // ?????????? ????????? ??????
+        const turnstileElem = document.querySelector('[name="cf-turnstile-response"]');
+        const token = turnstileElem ? turnstileElem.value : "";
+        
+        if (!token) {
+            s.innerText = 'Please complete the "Verify you are human" check.';
+            s.style.color = '#dc3545';
+            s.style.display = 'block';
+            return;
+        }
+
+        b.innerText = 'Sending...';
+        b.disabled = true;
+        s.style.display = 'none';
+        
+        try {
+            const response = await fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: document.getElementById('n').value,
+                    phone: document.getElementById('p').value,
+                    address: document.getElementById('a').value,
+                    email: document.getElementById('e').value,
+                    message: document.getElementById('m').value,
+                    token: token
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                s.innerText = '? Thank you! We will contact you shortly.';
+                s.style.color = '#28a745';
+                s.style.display = 'block';
+                document.getElementById('f').reset();
+                if (window.turnstile) turnstile.reset();
+            } else { 
+                throw new Error(result.error || 'Worker error'); 
+            }
+        } catch (err) {
+            console.error(err);
+            s.innerText = 'Something went wrong. Please check captcha or try again.';
+            s.style.color = '#dc3545';
+            s.style.display = 'block';
+        } finally {
+            b.innerText = 'Get Started';
+            b.disabled = false;
+        }
+    };
+</script>
+
+</body>
+</html>
