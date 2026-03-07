@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOUSEN — Sell Smarter</title>
+    <title>HOUSEN — Sell Your Property</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
@@ -12,13 +12,15 @@
         body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); -webkit-font-smoothing: antialiased; }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
         
-        nav { height: 100px; display: flex; align-items: center; }
-        .logo { font-size: 28px; letter-spacing: -0.5px; cursor: default; display: flex; align-items: center; gap: 8px; }
+        nav { height: 100px; display: flex; align-items: center; justify-content: flex-start; gap: 12px; }
+        .logo { font-size: 28px; letter-spacing: -0.5px; cursor: default; display: flex; align-items: center; text-decoration: none; color: inherit; }
         .logo b { font-weight: 700; color: var(--dark); }
         .logo span { font-weight: 300; color: var(--gray); }
+        .house-svg { width: 32px; height: 32px; fill: var(--blue); }
 
         .hero { padding: 40px 0; text-align: center; }
-        .hero-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+        .hero-icon { margin-bottom: 20px; display: flex; justify-content: center; }
+        .hero-icon svg { width: 64px; height: 64px; fill: var(--blue); opacity: 0.9; }
         .badge { background: var(--card); color: var(--blue); padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 24px; }
         h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 20px; line-height: 1.1; }
         .hero p { font-size: 20px; color: var(--gray); max-width: 600px; margin: 0 auto 40px; }
@@ -65,11 +67,14 @@
 
 <div class="container">
     <nav>
-        <div class="logo"><span>🏠</span><b>HOUSE</b><span>N</span></div>
+        <svg class="house-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 9V21H9V15H15V21H20V9L12 3Z"/></svg>
+        <div class="logo"><b>HOUSE</b><span>N</span></div>
     </nav>
 
     <section class="hero">
-        <span class="hero-icon">🏡</span>
+        <div class="hero-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 9V21H9V15H15V21H20V9L12 3Z"/></svg>
+        </div>
         <div class="badge">Trusted for over 100+ successful sales</div>
         <h1>Sell your property for more.<br>Pay much less.</h1>
         <p>Premium media and wide exposure on 65+ sites. Modern, fast, and simple.</p>
