@@ -113,14 +113,14 @@
 </div>
 
 <script>
-    const WORKER_URL = 'https://housen-api-bridge.photozisstudio.workers.dev';
+    // Обновленный URL вашего нового воркера
+    const WORKER_URL = 'https://houseapp.photozisstudio.workers.dev';
     
     document.getElementById('f').onsubmit = async (ev) => {
         ev.preventDefault();
         const b = document.getElementById('b');
         const s = document.getElementById('status');
         
-        // Получаем токен из капчи
         const turnstileElem = document.querySelector('[name="cf-turnstile-response"]');
         const token = turnstileElem ? turnstileElem.value : "";
         
